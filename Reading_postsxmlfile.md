@@ -74,7 +74,7 @@ to `DEBUG` therefore there will be excessive logging. You can change this by mod
 sc.setLogLevel("DEBUG")
 `
 
-Working with `Tags.xml` simply for trying changes we'll perform:
+WORKING WITH `Tags.xml` simply for trying changes we'll perform:
 ------------------
 
 ```python
