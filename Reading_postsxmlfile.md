@@ -70,10 +70,12 @@ gcloud dataproc jobs submit pyspark --cluster <your-cluster-name> --region <your
 You will get a JobId , you can check its logs. Be aware that in our code in `read-posts.py` we have set logging level
 to `DEBUG` therefore there will be excessive logging. You can change this by modifying line:
 
-`sc.setLogLevel("DEBUG")
 `
+sc.setLogLevel("DEBUG")
+`
+
+Working with `Tags.xml` simply for trying changes we'll perform:
 ------------------
-####Working with `Tags.xml` simply for trying changes we'll perform:
 
 ```python
 tags_df = spark.read.format('com.databricks.spark.xml').options(rowTag='row').load('Tags.xml')
@@ -101,9 +103,8 @@ tags_df.withColumn("Count", tags_df["Count"].cast(IntegerType()))
 
 ```
 
+CREATE A SMALLER `posts.xml` FILE TO WORK WITH
 --------------------
-
-####CREATE A SMALLER `posts.xml` FILE TO WORK WITH
 
 Send the `split-posts-file.py` file to your Cluster to run a pyspark job by running the following command:
 
@@ -117,11 +118,8 @@ This job should:
 <li>Write out the file to: json, parquet and orc</li>
 
 
+WORKING WITH THE SMALLER `posts.xml` FILE TO VERIFY WHICH OPERATIONS WE WANT TO RUN ON DATA
 -------------------
-
-####WORKING WITH THE SMALLER `posts.xml` FILE TO VERIFY WHICH OPERATIONS WE WANT TO RUN ON DATA
-
-
 
 ```python
 
