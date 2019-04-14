@@ -46,7 +46,7 @@ However it should be more recommedend to use the more intutitive pyspark.sql mod
 ```python
 from pyspark import sql 
 spark = sql.SparkSession.builder.getOrCreate()
-df = spark.read.format('com.databricks.spark.xml').options(rowTag='tags').load('/home/vgea/spark_stuff/Tags.xml')
+df = spark.read.format('com.databricks.spark.xml').options(rowTag='tags').load('<your-dir>Tags.xml')
 ```
 
 If the previous return some error like: 
@@ -85,7 +85,7 @@ if we would run
 it  returns 1. This is because there is only one element in the tag: `<tags>`. Instead we should load the file using the `<row>`  tag:
 
 ```python
->>> df = spark.read.format('com.databricks.spark.xml').options(rowTag='row').load('/home/vgea/spark_stuff/Tags.xml')
+>>> df = spark.read.format('com.databricks.spark.xml').options(rowTag='row').load('<your-dir>Tags.xml')
 >>> df.count()
 567
 ```
